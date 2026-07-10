@@ -11,13 +11,14 @@ petal_width = st.number_input("Petal Width")
 if st.button("Predict"):
 
     response = requests.post(
-        "https://iris-project-1-5rlt.onrender.com//predict",
+        "https://iris-project-1-5rlt.onrender.com/predict",
         json={
             "sepal_length": sepal_length,
             "sepal_width": sepal_width,
             "petal_length": petal_length,
             "petal_width": petal_width
-        }
+        },
+        timeout=90
     )
     result = response.json()
 
